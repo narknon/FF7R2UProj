@@ -1,0 +1,47 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "EEndGameJumpSequence.generated.h"
+
+UENUM(BlueprintType)
+enum class EEndGameJumpSequence : uint8 {
+    None,
+    Begin,
+    LocationJump,
+    DeletePrevLocation,
+    DeletePrevLocation_WaitStable,
+    DeletePrevLocation_WaitUnload,
+    CheckOnline,
+    CheckOnline_WaitDialog,
+    CheckSaveData,
+    DebugLoadDataCheck,
+    CutSceneTest_LoadDebugTable,
+    CutSceneTest_WaitLoadDebugTable,
+    CutSceneTest_WaitStreamDebugTable,
+    LoadNextLocation,
+    LoadNextLocation_WaitLoad,
+    LoadNextLocation_WaitStable,
+    LoadNextLocation_WaitStream,
+    CutSceneTest_PreLoad,
+    CutSceneTest_WaitPreLoad,
+    CutSceneTest_EntryLocation,
+    CutSceneTest_WaitEntryLocation,
+    CutSceneTest_WaitWarpInLocation,
+    CutSceneTest,
+    CutSceneTest_WaitLoad,
+    CutSceneTest_WaitFade,
+    RemoveLoadingView,
+    ConnectNextState,
+    CheckCommandLine,
+    CheckCommandLine_WaitTrigger,
+    CheckCommandLine_WaitAction,
+    CheckCommandLine_WaitDelay,
+    CheckCommandLine_StartGPUTrace,
+    CheckCommandLine_WaitGPUTrace,
+    CheckCommandLine_StartCPUTrace,
+    CheckCommandLine_WaitCPUTrace,
+    CheckCommandLine_StartPrintMemory,
+    CheckCommandLine_WaitPrintMemory,
+    CheckCommandLine_WaitExit,
+    Finish,
+};
+

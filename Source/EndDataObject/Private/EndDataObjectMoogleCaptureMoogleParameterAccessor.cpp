@@ -1,0 +1,5 @@
+#include "EndDataObjectMoogleCaptureMoogleParameterAccessor.h"
+
+FEndDataObjectMoogleCaptureMoogleParameterAccessor::FEndDataObjectMoogleCaptureMoogleParameterAccessor() {
+}
+

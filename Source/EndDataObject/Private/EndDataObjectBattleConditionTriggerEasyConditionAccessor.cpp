@@ -1,0 +1,5 @@
+#include "EndDataObjectBattleConditionTriggerEasyConditionAccessor.h"
+
+FEndDataObjectBattleConditionTriggerEasyConditionAccessor::FEndDataObjectBattleConditionTriggerEasyConditionAccessor() {
+}
+

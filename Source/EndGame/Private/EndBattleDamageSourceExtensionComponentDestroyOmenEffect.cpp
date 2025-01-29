@@ -1,0 +1,6 @@
+#include "EndBattleDamageSourceExtensionComponentDestroyOmenEffect.h"
+
+UEndBattleDamageSourceExtensionComponentDestroyOmenEffect::UEndBattleDamageSourceExtensionComponentDestroyOmenEffect(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
+

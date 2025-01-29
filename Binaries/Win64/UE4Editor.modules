@@ -1,0 +1,13 @@
+{
+	"BuildId": "afe20793-4467-4aac-a8f6-66fd413b8f8f",
+	"Modules": 
+	{
+		"EndCore": "UE4Editor-EndCore.dll",
+		"EndDataBase": "UE4Editor-EndDataBase.dll",
+		"EndDataObject": "UE4Editor-EndDataObject.dll",
+		"EndDebug": "UE4Editor-EndDebug.dll",
+		"ENDEditor": "UE4Editor-ENDEditor.dll",
+		"EndGame": "UE4Editor-EndGame.dll",
+		"EndOneSaveData": "UE4Editor-EndOneSaveData.dll"
+	}
+}

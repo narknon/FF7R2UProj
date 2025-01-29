@@ -1,0 +1,5 @@
+#include "EndDataObjectChocoboCraftLocationSaveParameterAccessor.h"
+
+FEndDataObjectChocoboCraftLocationSaveParameterAccessor::FEndDataObjectChocoboCraftLocationSaveParameterAccessor() {
+}
+

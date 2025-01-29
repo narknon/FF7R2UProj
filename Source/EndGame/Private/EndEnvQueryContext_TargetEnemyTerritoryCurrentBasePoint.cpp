@@ -1,0 +1,6 @@
+#include "EndEnvQueryContext_TargetEnemyTerritoryCurrentBasePoint.h"
+
+UEndEnvQueryContext_TargetEnemyTerritoryCurrentBasePoint::UEndEnvQueryContext_TargetEnemyTerritoryCurrentBasePoint() {
+}
+
+

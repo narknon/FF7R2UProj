@@ -1,0 +1,6 @@
+#include "EndBattleDamageSourceExtensionComponentFollowOwnerPhysicsObject.h"
+
+UEndBattleDamageSourceExtensionComponentFollowOwnerPhysicsObject::UEndBattleDamageSourceExtensionComponentFollowOwnerPhysicsObject(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
+

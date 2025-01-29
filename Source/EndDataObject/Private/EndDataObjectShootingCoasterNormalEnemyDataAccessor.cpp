@@ -1,0 +1,5 @@
+#include "EndDataObjectShootingCoasterNormalEnemyDataAccessor.h"
+
+FEndDataObjectShootingCoasterNormalEnemyDataAccessor::FEndDataObjectShootingCoasterNormalEnemyDataAccessor() {
+}
+

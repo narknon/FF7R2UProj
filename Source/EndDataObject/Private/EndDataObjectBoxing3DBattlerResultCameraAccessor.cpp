@@ -1,0 +1,5 @@
+#include "EndDataObjectBoxing3DBattlerResultCameraAccessor.h"
+
+FEndDataObjectBoxing3DBattlerResultCameraAccessor::FEndDataObjectBoxing3DBattlerResultCameraAccessor() {
+}
+

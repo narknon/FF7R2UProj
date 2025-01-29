@@ -1,0 +1,5 @@
+#include "EndDataObjectResidentBattleConditionTriggerGroupAccessor.h"
+
+FEndDataObjectResidentBattleConditionTriggerGroupAccessor::FEndDataObjectResidentBattleConditionTriggerGroupAccessor() {
+}
+

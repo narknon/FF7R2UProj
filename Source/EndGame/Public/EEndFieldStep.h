@@ -1,0 +1,46 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "EEndFieldStep.generated.h"
+
+UENUM(BlueprintType)
+enum class EEndFieldStep : uint8 {
+    SystemEntryLocationWait,
+    LoadSaveDataWait,
+    LoadDataTableWait,
+    CreatePartyWait,
+    CreateCache,
+    EntryLocationStep_Start,
+    EntryLocationStep_Loop,
+    EntryLocationStep_End,
+    EntryLocationWait,
+    LoadPlacementWait,
+    TextureStreamingWait,
+    ActorRefresh,
+    SetupWait,
+    UpdateLocationStep,
+    StartWarpInLocation,
+    WaitWarpFade,
+    WaitWarpGetOffStable,
+    WaitWarpCharaPopStable,
+    WaitWarpShiftReset,
+    WaitWarpInLocation,
+    WaitStableShiftWarpInLocation,
+    WaitStableCollisionWarpInLocation,
+    WaitStableStreamingWarpInLocation,
+    WaitStableWarpInLocation,
+    WaitTeleportingPartyMemberAll,
+    WaitStableWarpInLocationMassivePool,
+    WaitStableWarpInLocationStreamingPool,
+    EndWarpInLocation,
+    ExitManagerPreWait,
+    ExitManager,
+    ExitManagerWait,
+    ExitEnvironmentUnload,
+    ExitEnvironmentUnloadWait,
+    ExitParty,
+    ExitPartyWait,
+    ExitGameJumpActorWait,
+    ExitStepMax,
+    StepMax,
+};
+

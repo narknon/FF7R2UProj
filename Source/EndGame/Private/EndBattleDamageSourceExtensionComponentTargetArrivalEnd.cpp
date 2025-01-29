@@ -1,0 +1,6 @@
+#include "EndBattleDamageSourceExtensionComponentTargetArrivalEnd.h"
+
+UEndBattleDamageSourceExtensionComponentTargetArrivalEnd::UEndBattleDamageSourceExtensionComponentTargetArrivalEnd(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
+

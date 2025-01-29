@@ -1,0 +1,35 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "EBaseParameterValueType.generated.h"
+
+UENUM(BlueprintType)
+enum class EBaseParameterValueType : uint8 {
+    PHYSICS_ATTACK_ADD,
+    PHYSICS_ATTACK_SCALE,
+    MAGIC_ATTACK_ADD,
+    MAGIC_ATTACK_SCALE,
+    PHYSICS_DEFENSE_ADD,
+    PHYSICS_DEFENSE_SCALE,
+    MAGIC_DEFENSE_ADD,
+    MAGIC_DEFENSE_SCALE,
+    STRENGTH_ADD,
+    STRENGTH_SCALE,
+    MAGIC_ADD,
+    MAGIC_SCALE,
+    VITALITY_ADD,
+    VITALITY_SCALE,
+    SPIRIT_ADD,
+    SPIRIT_SCALE,
+    LUCK_ADD,
+    LUCK_SCALE,
+    DEXTERITY_ADD,
+    DEXTERITY_SCALE,
+    HP_MAX_ADD,
+    HP_MAX_SCALE,
+    MP_MAX_ADD,
+    MP_MAX_SCALE,
+    CRITICAL_HIT_RATE_ADD,
+    CRITICAL_HIT_RATE_SCALE,
+    MAX,
+};
+

@@ -1,0 +1,5 @@
+#include "RigUnit_EndLipSyncAudioExpressionBoneAnimationCache.h"
+
+FRigUnit_EndLipSyncAudioExpressionBoneAnimationCache::FRigUnit_EndLipSyncAudioExpressionBoneAnimationCache() {
+}
+

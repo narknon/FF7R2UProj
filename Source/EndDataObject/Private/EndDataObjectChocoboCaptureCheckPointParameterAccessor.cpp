@@ -1,0 +1,5 @@
+#include "EndDataObjectChocoboCaptureCheckPointParameterAccessor.h"
+
+FEndDataObjectChocoboCaptureCheckPointParameterAccessor::FEndDataObjectChocoboCaptureCheckPointParameterAccessor() {
+}
+

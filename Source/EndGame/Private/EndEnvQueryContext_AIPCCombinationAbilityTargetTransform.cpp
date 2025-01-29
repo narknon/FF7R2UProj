@@ -1,0 +1,6 @@
+#include "EndEnvQueryContext_AIPCCombinationAbilityTargetTransform.h"
+
+UEndEnvQueryContext_AIPCCombinationAbilityTargetTransform::UEndEnvQueryContext_AIPCCombinationAbilityTargetTransform() {
+}
+
+

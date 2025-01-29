@@ -1,0 +1,5 @@
+#include "EndDataObjectBattleAbilityReactionInfluenceAccessor.h"
+
+FEndDataObjectBattleAbilityReactionInfluenceAccessor::FEndDataObjectBattleAbilityReactionInfluenceAccessor() {
+}
+

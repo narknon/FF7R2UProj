@@ -1,0 +1,5 @@
+#include "EndDataObjectVehicleTargetIconInterruptGetOffAccessor.h"
+
+FEndDataObjectVehicleTargetIconInterruptGetOffAccessor::FEndDataObjectVehicleTargetIconInterruptGetOffAccessor() {
+}
+

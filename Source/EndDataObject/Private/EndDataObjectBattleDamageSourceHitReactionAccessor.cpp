@@ -1,0 +1,5 @@
+#include "EndDataObjectBattleDamageSourceHitReactionAccessor.h"
+
+FEndDataObjectBattleDamageSourceHitReactionAccessor::FEndDataObjectBattleDamageSourceHitReactionAccessor() {
+}
+

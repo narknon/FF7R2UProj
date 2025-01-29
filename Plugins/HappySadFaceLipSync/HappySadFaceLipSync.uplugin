@@ -1,0 +1,25 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.020180208b",
+	"FriendlyName": "HappyHSFLipSync",
+	"Description": "Creates Lipsync animation from .lsd files",
+	"Category": "HSF Lip Sync Animation",
+	"CreatedBy": "Jan Pijpers - Square Enix",
+	"CreatedByURL": "",
+	"DocsURL": "http://happy/document/Maya/HappyHSF/index.rst",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EnabledByDefault": true,
+	"CanContainContent": false,
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "HSFLipSyncRuntime",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}

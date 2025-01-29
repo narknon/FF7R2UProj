@@ -1,0 +1,19 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "EEndExtensionAIStateUnique.generated.h"
+
+UENUM(BlueprintType)
+enum class EEndExtensionAIStateUnique : uint8 {
+    NONE,
+    MINIGAME_CHOCOBOCAPTURE,
+    MOVE_SURROUNDINGS,
+    STALKER,
+    MINIGAME_FROGGUYS,
+    MINIGAME_ANIMALRUN_ATTACKR,
+    MINIGAME_ANIMALRUN_GOALKEEPER,
+    MINIGAME_ANIMALRUN_WANDERER,
+    MINIGAME_FROGGUYS_ROLL,
+    MINIGAME_ANIMALRUN_STRIKER,
+    MINIGAME_ANIMALRUN_ANCHOR,
+};
+

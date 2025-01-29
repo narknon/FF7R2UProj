@@ -1,0 +1,6 @@
+#include "EndBattleDamageSourceExtensionComponentDestroyOmenEmissive.h"
+
+UEndBattleDamageSourceExtensionComponentDestroyOmenEmissive::UEndBattleDamageSourceExtensionComponentDestroyOmenEmissive(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
+

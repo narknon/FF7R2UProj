@@ -1,0 +1,6 @@
+#include "EndDataObjectLifeSpotInputMiniGameLocationParameter.h"
+
+UEndDataObjectLifeSpotInputMiniGameLocationParameter::UEndDataObjectLifeSpotInputMiniGameLocationParameter() {
+}
+
+

@@ -1,0 +1,5 @@
+#include "EndDataObjectLocationResidentEnvironmentAccessor.h"
+
+FEndDataObjectLocationResidentEnvironmentAccessor::FEndDataObjectLocationResidentEnvironmentAccessor() {
+}
+

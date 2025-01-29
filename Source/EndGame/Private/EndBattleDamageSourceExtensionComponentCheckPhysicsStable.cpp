@@ -1,0 +1,6 @@
+#include "EndBattleDamageSourceExtensionComponentCheckPhysicsStable.h"
+
+UEndBattleDamageSourceExtensionComponentCheckPhysicsStable::UEndBattleDamageSourceExtensionComponentCheckPhysicsStable(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
+

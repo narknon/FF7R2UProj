@@ -1,0 +1,5 @@
+#include "EndDataObjectGambitFortCharacterParameterAccessor.h"
+
+FEndDataObjectGambitFortCharacterParameterAccessor::FEndDataObjectGambitFortCharacterParameterAccessor() {
+}
+

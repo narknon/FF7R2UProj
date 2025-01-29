@@ -1,0 +1,6 @@
+#include "EndBattleDamageSourceExtensionComponentConditionalHoming.h"
+
+UEndBattleDamageSourceExtensionComponentConditionalHoming::UEndBattleDamageSourceExtensionComponentConditionalHoming(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
+

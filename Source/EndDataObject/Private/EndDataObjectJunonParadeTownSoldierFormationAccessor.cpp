@@ -1,0 +1,5 @@
+#include "EndDataObjectJunonParadeTownSoldierFormationAccessor.h"
+
+FEndDataObjectJunonParadeTownSoldierFormationAccessor::FEndDataObjectJunonParadeTownSoldierFormationAccessor() {
+}
+

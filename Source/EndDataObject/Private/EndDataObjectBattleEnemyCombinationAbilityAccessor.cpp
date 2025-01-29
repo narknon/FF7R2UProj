@@ -1,0 +1,5 @@
+#include "EndDataObjectBattleEnemyCombinationAbilityAccessor.h"
+
+FEndDataObjectBattleEnemyCombinationAbilityAccessor::FEndDataObjectBattleEnemyCombinationAbilityAccessor() {
+}
+

@@ -1,0 +1,43 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "EndCascade",
+	"Description": "EndCascade",
+	"Category": "EndGame",
+	"CreatedBy": "saku sakuer",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Plugins": [
+		{
+			"Name": "SQEXSEAD",
+			"Enabled": true
+		},
+		{
+			"Name": "EndTextResource",
+			"Enabled": true
+		},
+		{
+			"Name": "Niagara",
+			"Enabled": true
+		},
+		{
+			"Name": "VFXNiagara",
+			"Enabled": true
+		},
+		{
+			"Name": "KBDPlugins",
+			"Enabled": true
+		},
+		{
+			"Name": "BonamikPlugin",
+			"Enabled": true
+		}
+	]
+}

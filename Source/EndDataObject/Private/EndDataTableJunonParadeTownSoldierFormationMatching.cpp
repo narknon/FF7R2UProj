@@ -1,0 +1,5 @@
+#include "EndDataTableJunonParadeTownSoldierFormationMatching.h"
+
+FEndDataTableJunonParadeTownSoldierFormationMatching::FEndDataTableJunonParadeTownSoldierFormationMatching() {
+}
+

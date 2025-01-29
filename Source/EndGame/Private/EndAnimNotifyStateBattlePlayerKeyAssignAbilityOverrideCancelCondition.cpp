@@ -1,0 +1,6 @@
+#include "EndAnimNotifyStateBattlePlayerKeyAssignAbilityOverrideCancelCondition.h"
+
+FEndAnimNotifyStateBattlePlayerKeyAssignAbilityOverrideCancelCondition::FEndAnimNotifyStateBattlePlayerKeyAssignAbilityOverrideCancelCondition() {
+    this->ConditionType = EEndAnimNotifyStateBattlePlayerKeyAssignAbilityOverrideCancelConditionType::None;
+}
+

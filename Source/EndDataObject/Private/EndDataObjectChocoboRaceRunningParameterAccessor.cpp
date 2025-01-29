@@ -1,0 +1,5 @@
+#include "EndDataObjectChocoboRaceRunningParameterAccessor.h"
+
+FEndDataObjectChocoboRaceRunningParameterAccessor::FEndDataObjectChocoboRaceRunningParameterAccessor() {
+}
+

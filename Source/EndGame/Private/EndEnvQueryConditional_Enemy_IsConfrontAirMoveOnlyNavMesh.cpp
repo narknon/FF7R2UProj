@@ -1,0 +1,6 @@
+#include "EndEnvQueryConditional_Enemy_IsConfrontAirMoveOnlyNavMesh.h"
+
+UEndEnvQueryConditional_Enemy_IsConfrontAirMoveOnlyNavMesh::UEndEnvQueryConditional_Enemy_IsConfrontAirMoveOnlyNavMesh() {
+}
+
+

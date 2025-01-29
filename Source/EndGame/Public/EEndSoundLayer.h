@@ -1,0 +1,47 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "EEndSoundLayer.generated.h"
+
+UENUM(BlueprintType)
+enum class EEndSoundLayer : uint8 {
+    Pause_ON,
+    Pause_OFF,
+    Skip_Cut,
+    Reset_Game,
+    Movie_IN,
+    Movie_OUT,
+    Menu_Open,
+    Menu_Close,
+    Title_IN,
+    Title_OUT,
+    JBMusic_FocusMode_ON,
+    JBMusic_FocusMode_OFF,
+    WaitMode_ON,
+    WaitMode_OFF,
+    Game_Blackout_IN,
+    Game_Blackout_OUT,
+    Level_Blackout_IN,
+    Level_Blackout_OUT,
+    CutScene_IN,
+    CutScene_OUT,
+    MiniGameMenu_IN,
+    MiniGameMenu_OUT,
+    PV_IN,
+    PV_OUT,
+    PlayerWarp_IN,
+    PlayerWarp_OUT,
+    HitSlow_ON,
+    HitSlow_OFF,
+    MiniGame_BuggyShooting_Start,
+    MiniGame_BuggyShooting_End,
+    MiniGame_TorokkoShooting_Start,
+    MiniGame_TorokkoShooting_End,
+    MiniGame_Piano_Start,
+    MiniGame_Piano_End,
+    TutorialWindow_Open,
+    TutorialWindow_Close,
+    FastForward_Start,
+    FastForward_End,
+    _MAX UMETA(Hidden),
+};
+

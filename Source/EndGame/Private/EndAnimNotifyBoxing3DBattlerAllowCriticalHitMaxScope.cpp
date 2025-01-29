@@ -1,0 +1,6 @@
+#include "EndAnimNotifyBoxing3DBattlerAllowCriticalHitMaxScope.h"
+
+UEndAnimNotifyBoxing3DBattlerAllowCriticalHitMaxScope::UEndAnimNotifyBoxing3DBattlerAllowCriticalHitMaxScope() {
+}
+
+

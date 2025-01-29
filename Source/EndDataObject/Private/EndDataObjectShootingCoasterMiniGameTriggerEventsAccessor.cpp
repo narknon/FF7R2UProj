@@ -1,0 +1,5 @@
+#include "EndDataObjectShootingCoasterMiniGameTriggerEventsAccessor.h"
+
+FEndDataObjectShootingCoasterMiniGameTriggerEventsAccessor::FEndDataObjectShootingCoasterMiniGameTriggerEventsAccessor() {
+}
+

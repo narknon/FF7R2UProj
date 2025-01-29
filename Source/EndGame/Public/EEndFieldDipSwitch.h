@@ -1,0 +1,45 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "EEndFieldDipSwitch.generated.h"
+
+UENUM(BlueprintType)
+enum class EEndFieldDipSwitch : uint8 {
+    SaveFieldDipswitch,
+    EnableSpecialDebug,
+    IgnoreMob,
+    IgnoreEffectSound,
+    IgnoreTextureStreaming,
+    InfiniteTreasure,
+    ActionAutoWalkTypeDebug,
+    RootScaleCallStack,
+    LogLevelUp,
+    ForceEnableDebugMemory,
+    IgnoreFieldEncount,
+    DelayFinishBattle,
+    IgnoreRebuildSleeper,
+    IgnoreEncountEscape,
+    DeactivateBattleInAction,
+    DeactiveJumpArrivalPointWhite,
+    DisableDodge,
+    DisableDashParkour,
+    PlayerControllerSpeedDebugMode,
+    ForcePopObjectGroupMob,
+    ForceBattleMissionClear,
+    IgnoreFieldEncountAllowCaution,
+    DisableDebugMove,
+    DisableDebugChangeGameSpeed,
+    IgnoreDefaulBattleInCondition,
+    ForceSkippableCutScene,
+    BattleTalkMultiLayer,
+    ShowTerritoryEnemyInfo,
+    SpecificMoveWalk,
+    ForceSkip,
+    DisableObjectEntryAttributeList,
+    ForceEnableSharePlay,
+    ForceEnableChapterSelect,
+    hogehogehoge00,
+    hogehogehoge01,
+    hogehogehoge02,
+    Max,
+};
+

@@ -1,0 +1,5 @@
+#include "EndDataObjectChapterAssignStateChangeListAccessor.h"
+
+FEndDataObjectChapterAssignStateChangeListAccessor::FEndDataObjectChapterAssignStateChangeListAccessor() {
+}
+

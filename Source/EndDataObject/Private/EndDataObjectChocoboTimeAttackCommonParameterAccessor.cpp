@@ -1,0 +1,5 @@
+#include "EndDataObjectChocoboTimeAttackCommonParameterAccessor.h"
+
+FEndDataObjectChocoboTimeAttackCommonParameterAccessor::FEndDataObjectChocoboTimeAttackCommonParameterAccessor() {
+}
+

@@ -1,0 +1,5 @@
+#include "SQEX_AnimNotifyState_Bonamik_TemporaryCollision_ConstraintTransformRules.h"
+
+FSQEX_AnimNotifyState_Bonamik_TemporaryCollision_ConstraintTransformRules::FSQEX_AnimNotifyState_Bonamik_TemporaryCollision_ConstraintTransformRules() {
+}
+

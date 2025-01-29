@@ -1,0 +1,5 @@
+#include "EndDataObjectCrystalAnalysisCommonParameterAccessor.h"
+
+FEndDataObjectCrystalAnalysisCommonParameterAccessor::FEndDataObjectCrystalAnalysisCommonParameterAccessor() {
+}
+

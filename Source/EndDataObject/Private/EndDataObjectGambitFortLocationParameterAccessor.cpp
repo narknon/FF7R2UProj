@@ -1,0 +1,5 @@
+#include "EndDataObjectGambitFortLocationParameterAccessor.h"
+
+FEndDataObjectGambitFortLocationParameterAccessor::FEndDataObjectGambitFortLocationParameterAccessor() {
+}
+

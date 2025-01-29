@@ -1,0 +1,5 @@
+#include "EndDataObjectBikeBattleCutSceneCharacterAccessor.h"
+
+FEndDataObjectBikeBattleCutSceneCharacterAccessor::FEndDataObjectBikeBattleCutSceneCharacterAccessor() {
+}
+

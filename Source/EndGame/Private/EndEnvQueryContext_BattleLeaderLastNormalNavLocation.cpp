@@ -1,0 +1,6 @@
+#include "EndEnvQueryContext_BattleLeaderLastNormalNavLocation.h"
+
+UEndEnvQueryContext_BattleLeaderLastNormalNavLocation::UEndEnvQueryContext_BattleLeaderLastNormalNavLocation() {
+}
+
+

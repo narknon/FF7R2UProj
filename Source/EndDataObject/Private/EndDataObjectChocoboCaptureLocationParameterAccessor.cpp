@@ -1,0 +1,5 @@
+#include "EndDataObjectChocoboCaptureLocationParameterAccessor.h"
+
+FEndDataObjectChocoboCaptureLocationParameterAccessor::FEndDataObjectChocoboCaptureLocationParameterAccessor() {
+}
+

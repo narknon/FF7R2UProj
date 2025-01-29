@@ -1,0 +1,5 @@
+#include "EndBehaviorEnvironmentCrashBoxGearBoxExtraAction.h"
+
+FEndBehaviorEnvironmentCrashBoxGearBoxExtraAction::FEndBehaviorEnvironmentCrashBoxGearBoxExtraAction() {
+}
+

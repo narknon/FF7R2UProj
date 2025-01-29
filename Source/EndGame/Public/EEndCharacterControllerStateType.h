@@ -1,0 +1,48 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "EEndCharacterControllerStateType.generated.h"
+
+UENUM(BlueprintType)
+enum class EEndCharacterControllerStateType : uint8 {
+    None,
+    Idle,
+    Ability,
+    Animation,
+    Action,
+    Damage,
+    Dead,
+    Revive,
+    FieldActionCommon,
+    FieldAttack,
+    Vault,
+    Climbing,
+    FieldNatural,
+    MineCart,
+    CableCart,
+    FieldDodge,
+    FieldTargetJump,
+    HookRope,
+    ChocoboStop,
+    Treasure,
+    HoldObject,
+    CatsithRolling,
+    FieldWallRunning,
+    SearchCactusRock,
+    SpiderMove,
+    HintAnimalInteract,
+    ChocoboGlide,
+    ChocoboJet,
+    ChocoboFieldStep,
+    ChocoboFieldDrift,
+    ChocoboFieldBrake,
+    MiniGameTorokko,
+    MiniGameFrogGuys,
+    MiniGameAnimalRun,
+    Guard,
+    Burst,
+    Sleep,
+    Stun,
+    BattleDodge,
+    Max,
+};
+

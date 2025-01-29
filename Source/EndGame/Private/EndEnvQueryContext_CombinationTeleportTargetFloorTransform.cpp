@@ -1,0 +1,6 @@
+#include "EndEnvQueryContext_CombinationTeleportTargetFloorTransform.h"
+
+UEndEnvQueryContext_CombinationTeleportTargetFloorTransform::UEndEnvQueryContext_CombinationTeleportTargetFloorTransform() {
+}
+
+

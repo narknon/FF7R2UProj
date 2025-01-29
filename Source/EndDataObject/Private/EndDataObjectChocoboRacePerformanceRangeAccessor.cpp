@@ -1,0 +1,5 @@
+#include "EndDataObjectChocoboRacePerformanceRangeAccessor.h"
+
+FEndDataObjectChocoboRacePerformanceRangeAccessor::FEndDataObjectChocoboRacePerformanceRangeAccessor() {
+}
+

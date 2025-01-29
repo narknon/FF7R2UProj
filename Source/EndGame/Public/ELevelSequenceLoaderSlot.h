@@ -1,0 +1,46 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "ELevelSequenceLoaderSlot.generated.h"
+
+UENUM(BlueprintType)
+enum class ELevelSequenceLoaderSlot : uint8 {
+    Global00,
+    Global01,
+    Global02,
+    Global03,
+    Global04,
+    Global05,
+    Global06,
+    Global07,
+    Global08,
+    Global09,
+    Global10,
+    Global11,
+    Global12,
+    Global13,
+    Global14,
+    Global15,
+    Global16,
+    Global17,
+    Global18,
+    Global19,
+    Global20,
+    Global21,
+    Global22,
+    Global23,
+    Global24,
+    Global25,
+    Global26,
+    Global27,
+    Global28,
+    Global29,
+    Global30,
+    Global31,
+    Placement,
+    LocationResident00,
+    LocationResident01,
+    LocationResident02,
+    LocationResident03,
+    SlotMax,
+};
+

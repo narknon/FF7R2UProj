@@ -1,0 +1,5 @@
+#include "EndDataObjectLifeSpotInputMiniGameLocationParameterAccessor.h"
+
+FEndDataObjectLifeSpotInputMiniGameLocationParameterAccessor::FEndDataObjectLifeSpotInputMiniGameLocationParameterAccessor() {
+}
+
