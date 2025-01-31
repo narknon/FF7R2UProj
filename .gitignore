@@ -290,6 +290,7 @@ Saved/
 /Programs/UnrealBuildTool/**
 /LocalBuilds/
 /Build/
+/WindowsNoEditor/
 
 # Ignore Swarm local save files
 /Binaries/DotNET/SwarmAgent.DeveloperOptions.xml
