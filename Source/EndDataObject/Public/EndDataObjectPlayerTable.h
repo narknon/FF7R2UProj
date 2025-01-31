@@ -11,7 +11,7 @@ public:
     
     UEndDataObjectPlayerTable();
 
-    virtual void Serialize(FStructuredArchiveRecord& Record) override;
+    virtual void Serialize(FStructuredArchiveRecord& Record);
 
 };
 

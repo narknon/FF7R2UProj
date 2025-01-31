@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{D016332D-4C11-143C-4082-85A138BA188C}",
+	"EngineAssociation": "{A6C88BD0-4466-060F-1B43-57B6E5571F47}",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -434,6 +434,9 @@
 			"Name": "MESMPlacement",
 			"Enabled": true
 		}
+	],
+	"AdditionalPluginDirectories": [
+		"Mods"
 	],
 	"TargetPlatforms": [
 		"PS5",

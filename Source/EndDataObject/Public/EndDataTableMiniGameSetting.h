@@ -13,5 +13,21 @@ private:
     
 public:
     ENDDATAOBJECT_API FEndDataTableMiniGameSetting();
+    
+    void Freeze(FMemoryImageWriter& Writer) const
+    {
+        Writer.WriteObject(UseSoundLayer);
+    }
+    
 };
 
+// Let UE know that this struct has a Freeze method
+template<>
+struct TStructOpsTypeTraits<FEndDataTableMiniGameSetting>
+    : public TStructOpsTypeTraitsBase2<FEndDataTableMiniGameSetting>
+{
+    enum
+    {
+        WithFreeze = true,
+    };
+};

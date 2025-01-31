@@ -1,10 +1,16 @@
 #include "EndDataObjectBase.h"
 
+#include "EndDataTableMiniGameSetting.h"
 #include "EndDataTableRowBase.h"
 
-UEndDataObjectBase::UEndDataObjectBase() {
-	RowStruct = nullptr;
-}
+UEndDataObjectBase::UEndDataObjectBase()
+	: RowStruct(nullptr)
+{}
+
+UEndDataObjectBase::UEndDataObjectBase(const FTypeLayoutDesc& InContentTypeLayout)
+	: ContentTypeLayout(InContentTypeLayout)
+	, RowStruct(nullptr)
+{}
 
 void UEndDataObjectBase::AddRowInternal(FName RowName, uint8* RowData)
 {
@@ -97,29 +103,38 @@ void UEndDataObjectBase::LoadStructData(FStructuredArchiveSlot Slot)
 	}
 }
 
-void UEndDataObjectBase::Serialize(FStructuredArchiveRecord& Record)
+void UEndDataObjectBase::Serialize(FArchive& Ar)
 {
-	FArchive& BaseArchive = Record.GetUnderlyingArchive();
-	
-	Super::Serialize(Record); // When loading, this should load our RowStruct!	
+	if(Ar.IsSaving())
+	{
+		// Suppose we have an instance of the struct:
+		FEndDataTableMiniGameSetting MyData;
 
-	if (RowStruct && RowStruct->HasAnyFlags(RF_NeedLoad))
-	{
-		auto RowStructLinker = RowStruct->GetLinker();
-		if (RowStructLinker)
-		{
-			RowStructLinker->Preload(RowStruct);
-		}
-	}
+		// Create the memory image container
+		FMemoryImage MemoryImage;
 
-	if(BaseArchive.IsLoading())
-	{
-		EmptyTable();
-		LoadStructData(Record.EnterField(SA_FIELD_NAME(TEXT("Data"))));
+		// Create a writer that will fill that image
+		FMemoryImageWriter Writer(MemoryImage);
+
+		// "Freeze" (serialize) our struct into MemoryImage
+		MyData.Freeze(Writer);
+
+		FMemoryImageResult MemoryImageResult;
+		MemoryImage.Flatten(MemoryImageResult, true);
+
+		MemoryImageResult.SaveToArchive(Ar);
 	}
-	else if(BaseArchive.IsSaving())
+	else if(Ar.IsLoading())
 	{
-		SaveStructData(Record.EnterField(SA_FIELD_NAME(TEXT("Data"))));
+		uint32 FrozenContentSize;
+		Ar << FrozenContentSize;
+		// ensure frozen content is at least as big as our FShaderMapContent-derived class
+		checkf(FrozenContentSize >= ContentTypeLayout.Size, TEXT("Invalid FrozenContentSize for %s, got %d, expected at least %d"), ContentTypeLayout.Name, FrozenContentSize, ContentTypeLayout.Size);
+
+		void* ContentMemory = FMemory::Malloc(FrozenContentSize);
+		Ar.Serialize(ContentMemory, FrozenContentSize);
+		
+		FMemoryImageResult::ApplyPatchesFromArchive(ContentMemory, Ar);
 	}
 }
 
