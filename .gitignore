@@ -324,7 +324,3 @@ Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/**
 # Ignore large FB data files
 /Source/ThirdParty/Facebook/IOS/**/*.yml
 /Source/ThirdParty/Facebook/IOS/**/*.json
-
-!Content
-!Content/*
-!Content/Python/*
