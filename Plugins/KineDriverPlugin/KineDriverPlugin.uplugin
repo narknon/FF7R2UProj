@@ -13,13 +13,17 @@
 	"EnabledByDefault": true,
 	"CanContainContent": false,
 	"IsBetaVersion": false,
-	"IsExperimentalVersion": false,
 	"Installed": false,
 	"Modules": [
 		{
 			"Name": "KineDriverRt",
 			"Type": "Runtime",
 			"LoadingPhase": "PreDefault"
+		},
+		{
+			"Name": "KineDriverEd",
+			"Type": "UncookedOnly",
+			"LoadingPhase": "PostEngineInit"
 		}
 	]
 }

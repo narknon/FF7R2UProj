@@ -1,10 +1,10 @@
 #include "EndDataObjectPlayerTable.h"
 
 UEndDataObjectPlayerTable::UEndDataObjectPlayerTable() {
-	RowStruct = FEndDataTablePlayerTable::StaticStruct();
+	/*RowStruct = FEndDataTablePlayerTable::StaticStruct();*/
 }
 
-void UEndDataObjectPlayerTable::Serialize(FStructuredArchiveRecord& Record)
+/*void UEndDataObjectPlayerTable::Serialize(FStructuredArchiveRecord& Record)
 {
 	Super::Serialize(Record);
-}
+}*/

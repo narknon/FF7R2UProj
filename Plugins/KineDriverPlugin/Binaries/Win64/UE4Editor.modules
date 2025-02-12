@@ -2,6 +2,7 @@
 	"BuildId": "2fb0685c-5a6f-4cf4-a550-f3aea3649d73",
 	"Modules": 
 	{
+		"KineDriverEd": "UE4Editor-KineDriverEd.dll",
 		"KineDriverRt": "UE4Editor-KineDriverRt.dll"
 	}
 }

@@ -11,7 +11,7 @@ public:
     
     UEndDataObjectPlayerTable();
 
-    virtual void Serialize(FStructuredArchiveRecord& Record);
+    /*virtual void Serialize(FStructuredArchiveRecord& Record);*/
 
 };
 

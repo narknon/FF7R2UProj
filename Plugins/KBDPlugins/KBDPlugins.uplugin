@@ -14,13 +14,6 @@
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
 	"Installed": false,
-	"Modules": [
-		{
-			"Name": "KBDRt",
-			"Type": "Runtime",
-			"LoadingPhase": "PreDefault"
-		}
-	],
 	"Plugins": [
 		{
 			"Name": "BonamikPlugin",
@@ -33,6 +26,18 @@
 		{
 			"Name": "ControlRig",
 			"Enabled": true
+		}
+	],
+	"Modules": [
+		{
+			"Name": "KBDRt",
+			"Type": "Runtime",
+			"LoadingPhase": "PreDefault"
+		},
+		{
+			"Name": "KBDEd",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
 		}
 	]
 }

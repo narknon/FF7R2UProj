@@ -435,9 +435,6 @@
 			"Enabled": true
 		}
 	],
-	"AdditionalPluginDirectories": [
-		"Mods"
-	],
 	"TargetPlatforms": [
 		"PS5",
 		"WindowsNoEditor",

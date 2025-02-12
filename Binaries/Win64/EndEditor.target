@@ -284,6 +284,14 @@
 			"Type": "SymbolFile"
 		},
 		{
+			"Path": "$(ProjectDir)/Plugins/BonamikPlugin/Binaries/Win64/UE4Editor-BonamikEd.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/BonamikPlugin/Binaries/Win64/UE4Editor-BonamikEd.pdb",
+			"Type": "SymbolFile"
+		},
+		{
 			"Path": "$(ProjectDir)/Plugins/SQEXSEAD/Binaries/Win64/UE4Editor-SQEXSEAD.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -344,11 +352,27 @@
 			"Type": "SymbolFile"
 		},
 		{
+			"Path": "$(ProjectDir)/Plugins/KBDPlugins/Binaries/Win64/UE4Editor-KBDEd.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/KBDPlugins/Binaries/Win64/UE4Editor-KBDEd.pdb",
+			"Type": "SymbolFile"
+		},
+		{
 			"Path": "$(ProjectDir)/Plugins/KineDriverPlugin/Binaries/Win64/UE4Editor-KineDriverRt.dll",
 			"Type": "DynamicLibrary"
 		},
 		{
 			"Path": "$(ProjectDir)/Plugins/KineDriverPlugin/Binaries/Win64/UE4Editor-KineDriverRt.pdb",
+			"Type": "SymbolFile"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/KineDriverPlugin/Binaries/Win64/UE4Editor-KineDriverEd.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/KineDriverPlugin/Binaries/Win64/UE4Editor-KineDriverEd.pdb",
 			"Type": "SymbolFile"
 		},
 		{
@@ -2611,6 +2635,10 @@
 		},
 		{
 			"Path": "$(ProjectDir)/Plugins/HappySadFaceLipSync/HappySadFaceLipSync.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(ProjectDir)/Mods/test1/test1.uplugin",
 			"Type": "UFS"
 		},
 		{
