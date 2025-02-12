@@ -1,0 +1,4 @@
+[submodule "Content"]
+	path = Content
+	url = https://github.com/peek6/FF7Rebirth_UE_Project
+	branch = content_only
