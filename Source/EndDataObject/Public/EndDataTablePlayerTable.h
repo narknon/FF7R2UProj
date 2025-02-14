@@ -6,10 +6,12 @@
 USTRUCT(BlueprintType)
 struct FEndDataTablePlayerTable : public FEndDataTableRowBase {
     GENERATED_BODY()
+    DECLARE_TYPE_LAYOUT(FEndDataTablePlayerTable, NonVirtual);
 public:
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    uint8 PlayerType;
+    LAYOUT_FIELD(uint8, PlayerType);
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString TextId;

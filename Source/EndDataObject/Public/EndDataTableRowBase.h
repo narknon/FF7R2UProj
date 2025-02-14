@@ -7,6 +7,7 @@ USTRUCT(BlueprintType)
 struct FEndDataTableRowBase {
     GENERATED_BODY()
 public:
+	DECLARE_TYPE_LAYOUT(FEndDataTableRowBase, NonVirtual);
 
     FEndDataTableRowBase() { }
     virtual ~FEndDataTableRowBase() { }

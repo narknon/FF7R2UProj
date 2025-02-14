@@ -1,18 +1,15 @@
 #include "EndDataObjectBase.h"
 
-#include "EndDataTableMiniGameSetting.h"
+
 #include "EndDataTableRowBase.h"
 
 UEndDataObjectBase::UEndDataObjectBase()
 	: RowStruct(nullptr)
-{}
+{
+	
+}
 
-UEndDataObjectBase::UEndDataObjectBase(const FTypeLayoutDesc& InContentTypeLayout)
-	: ContentTypeLayout(InContentTypeLayout)
-	, RowStruct(nullptr)
-{}
-
-void UEndDataObjectBase::AddRowInternal(FName RowName, uint8* RowData)
+void UEndDataObjectBase::AddRowInternal(FName RowName, FEndDataTableRowBase* RowData)
 {
 	RowMap.Add(RowName, RowData);
 }
@@ -37,7 +34,7 @@ void UEndDataObjectBase::SaveStructData(FStructuredArchiveSlot Slot)
 		Row << SA_VALUE(TEXT("Name"), RowName);
 
 		// Save out data
-		uint8* RowData = RowIt.Value();
+		FEndDataTableRowBase* RowData = RowIt.Value();
 
 		SaveUsingStruct->SerializeItem(Row.EnterField(SA_FIELD_NAME(TEXT("Value"))), RowData, nullptr);
 	}
@@ -61,7 +58,7 @@ void UEndDataObjectBase::EmptyTable()
 	// Iterate over all rows in table and free mem
 	for (auto RowIt = RowMap.CreateIterator(); RowIt; ++RowIt)
 	{
-		uint8* RowData = RowIt.Value();
+		FEndDataTableRowBase* RowData = RowIt.Value();
 		EmptyUsingStruct.DestroyStruct(RowData);
 		FMemory::Free(RowData);
 	}
@@ -91,7 +88,7 @@ void UEndDataObjectBase::LoadStructData(FStructuredArchiveSlot Slot)
 		RowRecord << SA_VALUE(TEXT("Name"), RowName);
 
 		// Load row data
-		uint8* RowData = (uint8*)FMemory::Malloc(LoadUsingStruct->GetStructureSize());
+		FEndDataTableRowBase* RowData = (FEndDataTableRowBase*)FMemory::Malloc(LoadUsingStruct->GetStructureSize());
 
 		// And be sure to call DestroyScriptStruct later
 		LoadUsingStruct->InitializeStruct(RowData);
@@ -105,36 +102,6 @@ void UEndDataObjectBase::LoadStructData(FStructuredArchiveSlot Slot)
 
 void UEndDataObjectBase::Serialize(FArchive& Ar)
 {
-	if(Ar.IsSaving())
-	{
-		// Suppose we have an instance of the struct:
-		FEndDataTableMiniGameSetting MyData;
-
-		// Create the memory image container
-		FMemoryImage MemoryImage;
-
-		// Create a writer that will fill that image
-		FMemoryImageWriter Writer(MemoryImage);
-
-		// "Freeze" (serialize) our struct into MemoryImage
-		MyData.Freeze(Writer);
-
-		FMemoryImageResult MemoryImageResult;
-		MemoryImage.Flatten(MemoryImageResult, true);
-
-		MemoryImageResult.SaveToArchive(Ar);
-	}
-	else if(Ar.IsLoading())
-	{
-		uint32 FrozenContentSize;
-		Ar << FrozenContentSize;
-		// ensure frozen content is at least as big as our FShaderMapContent-derived class
-		checkf(FrozenContentSize >= ContentTypeLayout.Size, TEXT("Invalid FrozenContentSize for %s, got %d, expected at least %d"), ContentTypeLayout.Name, FrozenContentSize, ContentTypeLayout.Size);
-
-		void* ContentMemory = FMemory::Malloc(FrozenContentSize);
-		Ar.Serialize(ContentMemory, FrozenContentSize);
-		
-		FMemoryImageResult::ApplyPatchesFromArchive(ContentMemory, Ar);
-	}
+	Super::Serialize(Ar);
 }
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "EndDataTableRowBase.h"
 #include "MemoryMappedAsset.h"
 #include "EndDataObjectBase.generated.h"
 
@@ -7,18 +8,17 @@ UCLASS(Abstract, Blueprintable)
 class ENDDATAOBJECT_API UEndDataObjectBase : public UMemoryMappedAsset {
     GENERATED_BODY()
 public:
+    using FRowMap = TMemoryImageMap<FName, FEndDataTableRowBase*>;
     UEndDataObjectBase();
-    UEndDataObjectBase(const FTypeLayoutDesc& InContentTypeLayout);
+
     DECLARE_MULTICAST_DELEGATE(FOnDataObjectChanged);
     DECLARE_MULTICAST_DELEGATE(FOnDataObjectImport);
     UScriptStruct*			RowStruct;
     /** Map of name of row to row data structure. */
-    TMemoryImageMap<FName, uint8*>		RowMap;
+    FRowMap                 RowMap;
 
-    const FTypeLayoutDesc& ContentTypeLayout{};
-    
     /** Called to add rows to the data table */
-    virtual void AddRowInternal(FName RowName, uint8* RowDataPtr);
+    virtual void AddRowInternal(FName RowName, FEndDataTableRowBase* RowData);
 
     void SaveStructData(FStructuredArchiveSlot Slot);
     UScriptStruct& GetEmptyUsingStruct() const;

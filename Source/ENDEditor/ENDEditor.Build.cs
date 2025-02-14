@@ -9,6 +9,8 @@ public class ENDEditor : ModuleRules {
         PublicDependencyModuleNames.AddRange(new string[] {
             "Core",
             "CoreUObject",
+            "DeveloperSettings",
+            "EndGame",
             "Engine",
             "UnrealEd",
         });
