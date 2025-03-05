@@ -21,5 +21,10 @@ public:
     FHSFLipMapShape DummyShape;
     
     FAnimNode_HSFLipSync();
+
+    // Override required functions
+    virtual void Initialize_AnyThread(const FAnimationInitializeContext &Context) override;
+    virtual void Update_AnyThread(const FAnimationUpdateContext &Context) override;
+    virtual void Evaluate_AnyThread(FPoseContext &Output) override;
 };
 
