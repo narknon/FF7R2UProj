@@ -8,10 +8,73 @@
 #include "AssetTypeActions_ShaderResourceBuffer.h"
 #include "AssetTypeActions_EndAssetPack.h"
 #include "AssetTypeActions_EndAnimSet.h"
+#include "EffectAppendixMesh.h"
+#include "EditorFramework/AssetImportData.h"
+#include "Editor.h"
+
+// Add a tick delegate for animating EffectAppendixMesh assets
+class FEffectAppendixMeshAnimationTicker
+{
+public:
+    // Frame rate settings
+    static constexpr float TargetFPS = 30.0f;
+    static constexpr float FrameTime = 1.0f / TargetFPS;
+    
+    static bool Tick(float DeltaTime)
+    {
+        // Track accumulated time for throttling
+        static float AccumulatedTime = 0.0f;
+        static bool bNeedsRedraw = false;
+        
+        // Accumulate time
+        AccumulatedTime += DeltaTime;
+        
+        // Only process updates at the target frame rate
+        if (AccumulatedTime >= FrameTime)
+        {
+            // Store the time for updates
+            float ActualDeltaTime = AccumulatedTime;
+            AccumulatedTime = 0.0f; // Reset counter
+            
+            bNeedsRedraw = false; // Reset the flag
+            
+            // Process all loaded EffectAppendixMesh assets
+            for (TObjectIterator<UEffectAppendixMesh> It; It; ++It)
+            {
+                UEffectAppendixMesh* EffectAppendixMesh = *It;
+                if (EffectAppendixMesh && !EffectAppendixMesh->IsPendingKill())
+                {
+#if WITH_EDITOR
+                    // Only tick if the animation is actually playing
+                    if (EffectAppendixMesh->IsAnimationPlaying())
+                    {
+                        // Let the mesh handle its own timing and updates
+                        EffectAppendixMesh->Tick(ActualDeltaTime);
+                        
+                        // Mark that we have active animations
+                        bNeedsRedraw = true;
+                    }
+#endif
+                }
+            }
+            
+            // Only schedule a redraw if there's an active animation
+            // and we're at the correct frame time
+            if (bNeedsRedraw && GEditor)
+            {
+                // Don't actually redraw here - let the individual meshes handle it
+                // This avoids redrawing multiple times in the same frame
+            }
+        }
+        
+        return true; // Keep ticking
+    }
+};
+
 
 void FENDEditorModule::StartupModule()
 {
-	FAssetToolsModule& AssetToolsModule = FAssetToolsModule::GetModule();
+    FAssetToolsModule& AssetToolsModule = FAssetToolsModule::GetModule();
 
 	IAssetTools& AssetTools = AssetToolsModule.Get();
 	
@@ -30,6 +93,10 @@ void FENDEditorModule::StartupModule()
 	AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction5));
 	AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction6));
 	AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction7));
+    // Register tick delegate for animating EffectAppendixMesh assets
+    TickDelegateHandle = FTicker::GetCoreTicker().AddTicker(
+        FTickerDelegate::CreateStatic(&FEffectAppendixMeshAnimationTicker::Tick)
+    );
 }
 
 void FENDEditorModule::ShutdownModule()
@@ -45,7 +112,9 @@ void FENDEditorModule::ShutdownModule()
 		AssetTools.UnregisterAssetTypeActions(AssetAction5->AsShared());
 		AssetTools.UnregisterAssetTypeActions(AssetAction6->AsShared());
 		AssetTools.UnregisterAssetTypeActions(AssetAction7->AsShared());
-	}
+        // Unregister tick delegate
+        FTicker::GetCoreTicker().RemoveTicker(TickDelegateHandle);
+    }
 }
-	
+    
 IMPLEMENT_MODULE(FENDEditorModule, ENDEditor)

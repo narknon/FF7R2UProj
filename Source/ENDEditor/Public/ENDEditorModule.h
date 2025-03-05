@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Modules/ModuleManager.h"
+#include "Containers/Ticker.h"
 
 class FENDEditorModule : public IModuleInterface
 {
@@ -17,4 +18,7 @@ private:
 	class FAssetTypeActions_EndAnimSet* AssetAction5;
 	class FAssetTypeActions_EndAssetPack* AssetAction6;
 	class FAssetTypeActions_ShaderResourceBuffer* AssetAction7;
+    
+	// Ticker handle for animating EffectAppendixMesh assets
+	FDelegateHandle TickDelegateHandle;
 };
