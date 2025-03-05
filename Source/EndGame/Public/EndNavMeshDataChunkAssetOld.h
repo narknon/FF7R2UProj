@@ -7,7 +7,7 @@ UCLASS(Blueprintable)
 class ENDGAME_API UEndNavMeshDataChunkAssetOld : public UMemoryMappedAsset {
     GENERATED_BODY()
 public:
-    UEndNavMeshDataChunkAssetOld();
+    UEndNavMeshDataChunkAssetOld(const FObjectInitializer& ObjectInitializer);
 
 };
 

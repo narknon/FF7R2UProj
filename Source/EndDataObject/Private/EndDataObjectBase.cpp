@@ -4,7 +4,8 @@
 #include "EndDataTableRowBase.h"
 
 UEndDataObjectBase::UEndDataObjectBase()
-	: RowStruct(nullptr)
+	: UMemoryMappedAsset(FObjectInitializer::Get())
+	, RowStruct(nullptr)
 {
 	
 }

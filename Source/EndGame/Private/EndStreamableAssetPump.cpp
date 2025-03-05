@@ -1,6 +1,6 @@
 #include "EndStreamableAssetPump.h"
 
-UEndStreamableAssetPump::UEndStreamableAssetPump() {
+UEndStreamableAssetPump::UEndStreamableAssetPump(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
 
 

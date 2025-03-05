@@ -1,6 +1,6 @@
 #include "EndNavMeshDataChunkAssetOld.h"
 
-UEndNavMeshDataChunkAssetOld::UEndNavMeshDataChunkAssetOld() {
+UEndNavMeshDataChunkAssetOld::UEndNavMeshDataChunkAssetOld(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
 
 

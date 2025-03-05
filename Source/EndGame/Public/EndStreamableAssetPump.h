@@ -7,7 +7,7 @@ UCLASS(Blueprintable)
 class ENDGAME_API UEndStreamableAssetPump : public UMemoryMappedAsset {
     GENERATED_BODY()
 public:
-    UEndStreamableAssetPump();
+    UEndStreamableAssetPump(const FObjectInitializer& ObjectInitializer);
 
 };
 
