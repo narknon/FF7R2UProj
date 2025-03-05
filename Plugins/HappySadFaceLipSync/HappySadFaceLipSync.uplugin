@@ -17,9 +17,20 @@
 	"Installed": false,
 	"Modules": [
 		{
+			"Name": "HSFLipSyncEditor",
+			"Type": "Developer",
+			"LoadingPhase": "Default"
+		},
+		{
 			"Name": "HSFLipSyncRuntime",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "EditorScriptingUtilities",
+			"Enabled": true
 		}
 	]
 }

@@ -12,6 +12,7 @@ public class BonamikEd : ModuleRules {
             "Engine",
             "BonamikRt",
             "UnrealEd",
+            "DeveloperSettings",
         });
     }
 }
