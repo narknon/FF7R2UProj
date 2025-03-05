@@ -10,9 +10,14 @@ public class ENDEditor : ModuleRules {
             "Core",
             "CoreUObject",
             "DeveloperSettings",
+            "ToolMenus",
+            "EditorStyle",
+            "InputCore",
             "EndGame",
             "Engine",
             "UnrealEd",
+            "Slate",
+            "SlateCore"
         });
     }
 }
