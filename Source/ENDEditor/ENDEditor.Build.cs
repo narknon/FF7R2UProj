@@ -14,10 +14,16 @@ public class ENDEditor : ModuleRules {
             "EditorStyle",
             "InputCore",
             "EndGame",
+            "EndDataObject",
+            "MovieScene",
+            "MovieSceneTools",
             "Engine",
             "UnrealEd",
             "Slate",
-            "SlateCore"
+            "SlateCore",
+            "AssetTools",
+            "Json",
+            "ApplicationCore"
         });
     }
 }
