@@ -1,4 +1,5 @@
 #include "EndDataObjectPlayerTable.h"
+#include "EndDataTablePlayerTable.h"
 
 UEndDataObjectPlayerTable::UEndDataObjectPlayerTable() {
 	/*RowStruct = FEndDataTablePlayerTable::StaticStruct();*/
