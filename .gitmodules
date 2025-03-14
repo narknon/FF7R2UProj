@@ -1,0 +1,3 @@
+[submodule "Plugins/Scrapyard"]
+	path = Plugins/Scrapyard
+	url = https://github.com/albixh/Scrapyard.git
