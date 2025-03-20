@@ -202,6 +202,7 @@
 !/Binaries/Win64/EndEditor.target
 !/Binaries/Win64/UE4Editor.modules
 !/Binaries/Win64/UE4Editor-EndCore.dll
+!/Binaries/Win64/UE4Editor-EndGame.dll
 !/Binaries/Win64/UE4Editor-EndDataBase.dll
 !/Binaries/Win64/UE4Editor-EndDataObject.dll
 !/Binaries/Win64/UE4Editor-EndDebug.dll
