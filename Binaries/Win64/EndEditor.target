@@ -16,7 +16,7 @@
 		"IsLicenseeVersion": 0,
 		"IsPromotedBuild": 0,
 		"BranchName": "++UE4+Release-4.26",
-		"BuildId": "80a16900-308e-4a9d-8c3b-9f143f84f8b3"
+		"BuildId": "e2008ceb-b06c-4dc4-8379-9e4463ed0b34"
 	},
 	"BuildProducts": [
 		{
@@ -444,11 +444,27 @@
 			"Type": "DynamicLibrary"
 		},
 		{
+			"Path": "$(ProjectDir)/Plugins/HappySadFaceLipSync/Binaries/Win64/UE4Editor-HSFLipSyncEditor.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/HappySadFaceLipSync/Binaries/Win64/UE4Editor-HSFLipSyncEditor.pdb",
+			"Type": "SymbolFile"
+		},
+		{
 			"Path": "$(ProjectDir)/Plugins/HappySadFaceLipSync/Binaries/Win64/UE4Editor-HSFLipSyncRuntime.dll",
 			"Type": "DynamicLibrary"
 		},
 		{
 			"Path": "$(ProjectDir)/Plugins/HappySadFaceLipSync/Binaries/Win64/UE4Editor-HSFLipSyncRuntime.pdb",
+			"Type": "SymbolFile"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/Scrapyard/Binaries/Win64/UE4Editor-Scrapyard.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/Scrapyard/Binaries/Win64/UE4Editor-Scrapyard.pdb",
 			"Type": "SymbolFile"
 		},
 		{
@@ -2276,6 +2292,10 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(ProjectDir)/Plugins/Scrapyard/Binaries/Win64/UE4Editor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/AI/EnvironmentQueryEditor/Binaries/Win64/UE4Editor.modules",
 			"Type": "RequiredResource"
 		},
@@ -2638,7 +2658,7 @@
 			"Type": "UFS"
 		},
 		{
-			"Path": "$(ProjectDir)/Mods/test1/test1.uplugin",
+			"Path": "$(ProjectDir)/Plugins/Scrapyard/Scrapyard.uplugin",
 			"Type": "UFS"
 		},
 		{
@@ -20992,6 +21012,10 @@
 		{
 			"Path": "$(EngineDir)/Binaries/Win64/AgentInterface.dll",
 			"Type": "NonUFS"
+		},
+		{
+			"Path": "$(EngineDir)/Binaries/Win64/AgentInterface.pdb",
+			"Type": "DebugNonUFS"
 		},
 		{
 			"Path": "$(EngineDir)/Binaries/ThirdParty/FreeImage/Win64/FreeImage.dll",

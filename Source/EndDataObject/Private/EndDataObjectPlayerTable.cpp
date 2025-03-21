@@ -1,7 +1,8 @@
 #include "EndDataObjectPlayerTable.h"
+#include "EndDataTablePlayerTable.h"
 
 UEndDataObjectPlayerTable::UEndDataObjectPlayerTable() {
-	/*RowStruct = FEndDataTablePlayerTable::StaticStruct();*/
+	RowStruct = FEndDataTablePlayerTable::StaticStruct();
 }
 
 /*void UEndDataObjectPlayerTable::Serialize(FStructuredArchiveRecord& Record)

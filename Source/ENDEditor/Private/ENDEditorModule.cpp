@@ -5,12 +5,15 @@
 #include "AssetTypeActions_EndEmissiveColorSettings.h"
 #include "AssetTypeActions_EndCinemaSequence.h"
 #include "AssetTypeActions_EndCameraSequence.h"
+#include "AssetTypeActions_EndDataObject.h"
 #include "AssetTypeActions_ShaderResourceBuffer.h"
 #include "AssetTypeActions_EndAssetPack.h"
 #include "AssetTypeActions_EndAnimSet.h"
 #include "EffectAppendixMesh.h"
 #include "EditorFramework/AssetImportData.h"
 #include "Editor.h"
+
+const FName FENDEditorModule::DataObjectEditorAppIdentifier(TEXT("DataObjectEditorApp"));
 
 // Add a tick delegate for animating EffectAppendixMesh assets
 class FEffectAppendixMeshAnimationTicker
@@ -86,6 +89,7 @@ void FENDEditorModule::StartupModule()
 	AssetAction5 = new FAssetTypeActions_EndAnimSet(CustomAssetCategory);
 	AssetAction6 = new FAssetTypeActions_EndAssetPack(CustomAssetCategory);
 	AssetAction7 = new FAssetTypeActions_ShaderResourceBuffer(CustomAssetCategory);
+    AssetAction8 = new FAssetTypeActions_EndDataObject(CustomAssetCategory);
 	AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction));
 	AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction2));
 	AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction3));
@@ -93,10 +97,15 @@ void FENDEditorModule::StartupModule()
 	AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction5));
 	AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction6));
 	AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction7));
+    AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction8));
+
     // Register tick delegate for animating EffectAppendixMesh assets
     TickDelegateHandle = FTicker::GetCoreTicker().AddTicker(
         FTickerDelegate::CreateStatic(&FEffectAppendixMeshAnimationTicker::Tick)
     );
+
+    MenuExtensibilityManager = MakeShareable(new FExtensibilityManager);
+    ToolBarExtensibilityManager = MakeShareable(new FExtensibilityManager);
 }
 
 void FENDEditorModule::ShutdownModule()
@@ -112,9 +121,14 @@ void FENDEditorModule::ShutdownModule()
 		AssetTools.UnregisterAssetTypeActions(AssetAction5->AsShared());
 		AssetTools.UnregisterAssetTypeActions(AssetAction6->AsShared());
 		AssetTools.UnregisterAssetTypeActions(AssetAction7->AsShared());
+        AssetTools.UnregisterAssetTypeActions(AssetAction8->AsShared());
+
         // Unregister tick delegate
         FTicker::GetCoreTicker().RemoveTicker(TickDelegateHandle);
+
+        MenuExtensibilityManager.Reset();
+        ToolBarExtensibilityManager.Reset();
     }
 }
-    
+
 IMPLEMENT_MODULE(FENDEditorModule, ENDEditor)
