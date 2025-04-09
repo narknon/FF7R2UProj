@@ -215,6 +215,9 @@
 !/Plugins/EnginePlugins/Marketplace/ACLPlugin/Content/*
 !/Mods/**/Binaries/Win64/*
 
+# Add exceptions for mod folder
+!/Mods/**/*
+
 # avoid PDBs
 /Plugins/**/*.pdb
 /Mods/**/*.pdb
@@ -281,7 +284,6 @@ obj/
 
 !/Intermediate/ScriptModules/
 
-/Mods/*
 
 
 
