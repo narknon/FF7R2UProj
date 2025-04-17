@@ -9,6 +9,7 @@
 #include "SourceControlOperations.h"
 #include "Async/Async.h"
 #include "UATHelper/Public/IUATHelperModule.h"
+#include "FileHelpers.h"
 
 #define LOCTEXT_NAMESPACE "AlpakitModListEntry"
 
@@ -134,7 +135,14 @@ FReply SAlpakitModEntry::OnEditModFinished(UModMetadataObject *MetadataObject)
 
 FString GetArgumentForLaunchType(EAlpakitStartGameType LaunchMode)
 {
-    return TEXT("");
+    switch (LaunchMode) {
+    case EAlpakitStartGameType::STEAM:
+        return TEXT("-Steam");
+    case EAlpakitStartGameType::EPIC:
+        return TEXT("-Epic");
+    default:
+        return TEXT("");
+    }
 }
 
 FText GetCurrentPlatformName()
@@ -150,8 +158,30 @@ FText GetCurrentPlatformName()
 #endif
 }
 
+void SAlpakitModEntry::SaveDirtyPackages() const
+{
+    TArray<UPackage*> DirtyPackages;
+
+    // Iterate over all loaded packages
+    for (UPackage* Package : TObjectRange<UPackage>())
+    {
+        if (Package && Package->IsDirty() && !Package->HasAnyFlags(RF_Transient))
+        {
+            DirtyPackages.Add(Package);
+        }
+    }
+
+    if (DirtyPackages.Num() > 0)
+    {
+        UEditorLoadingAndSavingUtils::SavePackages(DirtyPackages, true);
+    }
+}
+
+
 void SAlpakitModEntry::PackageMod(const TArray<TSharedPtr<SAlpakitModEntry>> &NextEntries) const
 {
+    SaveDirtyPackages();
+
     UAlpakitSettings *Settings = UAlpakitSettings::Get();
     const FString PluginName = Mod->GetName();
     const FString GamePath = Settings->FF7RGamePath.Path;
@@ -175,9 +205,25 @@ void SAlpakitModEntry::PackageMod(const TArray<TSharedPtr<SAlpakitModEntry>> &Ne
 
     UE_LOG(LogAlpakit, Display, TEXT("Packaging plugin \"%s\". %d remaining"), *PluginName, NextEntries.Num());
 
-    const FString CommandLine = FString::Printf(TEXT("-ScriptsForProject=\"%s\" PackagePlugin -Project=\"%s\" -PluginName=\"%s\" -GameDir=\"%s\" %s"),
-                                                *ProjectPath, *ProjectPath, *PluginName, *Settings->FF7RGamePath.Path, *AdditionalUATArguments);
 
+    EBuildConfiguration BuildConfiguration = EBuildConfiguration::Shipping;
+
+    FString CommandLine = FString::Printf(TEXT("-ScriptsForProject=\"%s\" PackagePlugin -Project=\"%s\" -DLCName=\"%s\" -clientconfig=%s -utf8output %s"),
+                                                *ProjectPath, *ProjectPath, *PluginName, LexToString(BuildConfiguration),*AdditionalUATArguments);
+
+    if (bBuild) {
+        CommandLine += TEXT(" -build");
+    }
+
+    CommandLine += FString::Printf(TEXT(" -LaunchGame_WindowsNoEditor=%s"), *LaunchGameArgument);
+    CommandLine += FString::Printf(TEXT(" -CopyToGameDirectory_WindowsNoEditor=\"%s\""), *GamePath);
+
+    CommandLine += GIsEditor || FApp::IsEngineInstalled() ? TEXT(" -nocompileeditor") : TEXT("");
+    CommandLine += FApp::IsEngineInstalled() ? TEXT(" -installed") : TEXT("");
+    //CommandLine += TEXT(" -nobuild");
+
+    CommandLine += bMergeArchive ? TEXT(" -merge") : TEXT("");
+   
     const FText PlatformName = GetCurrentPlatformName();
     IUATHelperModule::Get().CreateUatTask(
         CommandLine,

@@ -50,7 +50,7 @@ void FAlpakitModule::StartupModule() {
     
     //Register Alpakit Settings in Editor's Toolbar
     TSharedPtr<FExtender> ToolbarExtender = MakeShareable(new FExtender);
-    ToolbarExtender->AddToolBarExtension(TEXT("Play"), EExtensionHook::After, PluginCommands,
+    ToolbarExtender->AddToolBarExtension(TEXT("Compile"), EExtensionHook::After, PluginCommands,
         FToolBarExtensionDelegate::CreateLambda([](FToolBarBuilder& Builder) {
             Builder.AddToolBarButton(FAlpakitCommands::Get().OpenPluginWindow);
         }));
