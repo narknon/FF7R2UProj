@@ -10,6 +10,8 @@
 #include "Async/Async.h"
 #include "UATHelper/Public/IUATHelperModule.h"
 #include "FileHelpers.h"
+#include "ISettingsModule.h"
+#include "Settings/ProjectPackagingSettings.h"
 
 #define LOCTEXT_NAMESPACE "AlpakitModListEntry"
 
@@ -137,11 +139,11 @@ FString GetArgumentForLaunchType(EAlpakitStartGameType LaunchMode)
 {
     switch (LaunchMode) {
     case EAlpakitStartGameType::STEAM:
-        return TEXT("-Steam");
+        return TEXT("Steam");
     case EAlpakitStartGameType::EPIC:
-        return TEXT("-Epic");
+        return TEXT("Epic");
     default:
-        return TEXT("");
+        return TEXT("None");
     }
 }
 
@@ -178,9 +180,53 @@ void SAlpakitModEntry::SaveDirtyPackages() const
 }
 
 
+void SAlpakitModEntry::SetNeverCookDirectoriesForMod(const TSharedPtr<IPlugin>& CurrentModPlugin) const
+{
+    UProjectPackagingSettings* PackagingSettings = GetMutableDefault<UProjectPackagingSettings>();
+
+    // Clear all existing never-cook directories
+    PackagingSettings->DirectoriesToNeverCook.Empty();
+
+    // Add game content directory ("/Game")
+    {
+        FDirectoryPath GameDir;
+        GameDir.Path = TEXT("/Game");
+        PackagingSettings->DirectoriesToNeverCook.Add(GameDir);
+    }
+
+    // Project's /Mods/ folder on disk
+    const FString ModsRootPath = FPaths::ConvertRelativePathToFull(FPaths::ProjectDir() / TEXT("Mods/"));
+
+    // Loop through all discovered plugins
+    TArray<TSharedRef<IPlugin>> AllPlugins = IPluginManager::Get().GetDiscoveredPlugins();
+    for (const TSharedRef<IPlugin>& Plugin : AllPlugins)
+    {
+        if (Plugin != CurrentModPlugin && Plugin->CanContainContent())
+        {
+            const FString PluginFilePath = FPaths::ConvertRelativePathToFull(Plugin->GetDescriptorFileName());
+
+            // Only include plugins located inside the Mods directory
+            if (PluginFilePath.StartsWith(ModsRootPath))
+            {
+                const FString ContentMountPath = Plugin->GetMountedAssetPath(); // e.g. "/ModName/"
+                if (!ContentMountPath.IsEmpty())
+                {
+                    FDirectoryPath PluginDir;
+                    PluginDir.Path = ContentMountPath.LeftChop(1); // Strip trailing slash
+                    PackagingSettings->DirectoriesToNeverCook.Add(PluginDir);
+                }
+            }
+        }
+    }
+
+    PackagingSettings->UpdateDefaultConfigFile(); // Save to config
+}
+
 void SAlpakitModEntry::PackageMod(const TArray<TSharedPtr<SAlpakitModEntry>> &NextEntries) const
 {
+    // Set DirectoriesToNeverCook
     SaveDirtyPackages();
+    SetNeverCookDirectoriesForMod(Mod);
 
     UAlpakitSettings *Settings = UAlpakitSettings::Get();
     const FString PluginName = Mod->GetName();
@@ -191,7 +237,7 @@ void SAlpakitModEntry::PackageMod(const TArray<TSharedPtr<SAlpakitModEntry>> &Ne
                                     : FPaths::RootDir() / FApp::GetProjectName() / FApp::GetProjectName() + TEXT(".uproject");
 
     FString AdditionalUATArguments;
-    if (Settings->bCopyModsToGame)
+    /*if (Settings->bCopyModsToGame)
     {
         AdditionalUATArguments.Append(TEXT("-CopyToGameDir "));
     }
@@ -199,7 +245,7 @@ void SAlpakitModEntry::PackageMod(const TArray<TSharedPtr<SAlpakitModEntry>> &Ne
     {
         AdditionalUATArguments.Append(TEXT("-LaunchGame "));
         AdditionalUATArguments.Append(GetArgumentForLaunchType(Settings->LaunchGameAfterPacking)).Append(TEXT(" "));
-    }
+    }*/
 
     const FString LaunchGameArgument = GetArgumentForLaunchType(Settings->LaunchGameAfterPacking);
 
@@ -215,8 +261,17 @@ void SAlpakitModEntry::PackageMod(const TArray<TSharedPtr<SAlpakitModEntry>> &Ne
         CommandLine += TEXT(" -build");
     }
 
-    CommandLine += FString::Printf(TEXT(" -LaunchGame_WindowsNoEditor=%s"), *LaunchGameArgument);
-    CommandLine += FString::Printf(TEXT(" -CopyToGameDirectory_WindowsNoEditor=\"%s\""), *GamePath);
+    if (Settings->bCopyModsToGame)
+    {
+        CommandLine += FString::Printf(TEXT(" -CopyToGameDirectory_WindowsNoEditor=\"%s\""), *GamePath);
+    }
+    if (NextEntries.Num() == 0)
+    {
+        CommandLine += FString::Printf(TEXT(" -LaunchGame_WindowsNoEditor=%s"), *LaunchGameArgument);
+    }
+    else
+        CommandLine += FString::Printf(TEXT(" -LaunchGame_WindowsNoEditor=None"));
+
 
     CommandLine += GIsEditor || FApp::IsEngineInstalled() ? TEXT(" -nocompileeditor") : TEXT("");
     CommandLine += FApp::IsEngineInstalled() ? TEXT(" -installed") : TEXT("");
@@ -234,15 +289,18 @@ void SAlpakitModEntry::PackageMod(const TArray<TSharedPtr<SAlpakitModEntry>> &Ne
         // FAlpakitStyle::Get().GetBrush("Alpakit.OpenPluginWindow"),
         nullptr,
         NextEntries.Num() == 0 ? (IUATHelperModule::UatTaskResultCallack) nullptr : [NextEntries](FString resultType, double runTime)
-            { AsyncTask(ENamedThreads::GameThread, [NextEntries]()
-                        {
-                TSharedPtr<SAlpakitModEntry> NextMod = NextEntries[0];
+        {
+            AsyncTask(ENamedThreads::GameThread, [NextEntries]()
+                {
+                    TSharedPtr<SAlpakitModEntry> NextMod = NextEntries[0];
 
-                TArray<TSharedPtr<SAlpakitModEntry>> RemainingEntries = NextEntries.FilterByPredicate([NextMod](const TSharedPtr<SAlpakitModEntry>& X) {
-                    return X != NextMod;
+                    TArray<TSharedPtr<SAlpakitModEntry>> RemainingEntries = NextEntries.FilterByPredicate([NextMod](const TSharedPtr<SAlpakitModEntry>& X) {
+                        return X != NextMod;
+                        });
+
+                    NextMod->PackageMod(RemainingEntries);
                 });
-
-                NextMod->PackageMod(RemainingEntries); }); });
+        });
 }
 
 void SAlpakitModEntry::OnEnableCheckboxChanged(ECheckBoxState NewState)

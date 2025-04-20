@@ -13,6 +13,7 @@ class SAlpakitModEntry : public SCompoundWidget {
 
     void PackageMod(const TArray<TSharedPtr<SAlpakitModEntry>>& NextEntries) const;
     void SaveDirtyPackages() const;
+    void SetNeverCookDirectoriesForMod(const TSharedPtr<IPlugin>& CurrentModPlugin) const;
     void OnEnableCheckboxChanged(ECheckBoxState NewState);
 
     void OnEditMod();
