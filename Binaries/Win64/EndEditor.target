@@ -16,7 +16,7 @@
 		"IsLicenseeVersion": 0,
 		"IsPromotedBuild": 0,
 		"BranchName": "++UE4+Release-4.26",
-		"BuildId": "e2008ceb-b06c-4dc4-8379-9e4463ed0b34"
+		"BuildId": "ed3f2ce2-d210-47c5-9dee-53adfc0d13df"
 	},
 	"BuildProducts": [
 		{
@@ -268,6 +268,22 @@
 			"Type": "DynamicLibrary"
 		},
 		{
+			"Path": "$(ProjectDir)/Plugins/Alpakit/Binaries/Win64/UE4Editor-Alpakit.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/Alpakit/Binaries/Win64/UE4Editor-Alpakit.pdb",
+			"Type": "SymbolFile"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Editor/PluginBrowser/Binaries/Win64/UE4Editor-PluginBrowser.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Developer/PluginUtils/Binaries/Win64/UE4Editor-PluginUtils.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
 			"Path": "$(ProjectDir)/Plugins/BodyDriverPlugin/Binaries/Win64/UE4Editor-BodyDriverPlugin.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -500,10 +516,6 @@
 			"Type": "DynamicLibrary"
 		},
 		{
-			"Path": "$(EngineDir)/Plugins/Developer/PluginUtils/Binaries/Win64/UE4Editor-PluginUtils.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
 			"Path": "$(EngineDir)/Plugins/Developer/PropertyAccessNode/Binaries/Win64/UE4Editor-PropertyAccessNode.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -561,10 +573,6 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Editor/GeometryMode/Binaries/Win64/UE4Editor-TextureAlignMode.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Editor/PluginBrowser/Binaries/Win64/UE4Editor-PluginBrowser.dll",
 			"Type": "DynamicLibrary"
 		},
 		{
@@ -2236,6 +2244,18 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(ProjectDir)/Plugins/Alpakit/Binaries/Win64/UE4Editor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Editor/PluginBrowser/Binaries/Win64/UE4Editor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Developer/PluginUtils/Binaries/Win64/UE4Editor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(ProjectDir)/Plugins/BodyDriverPlugin/Binaries/Win64/UE4Editor.modules",
 			"Type": "RequiredResource"
 		},
@@ -2320,10 +2340,6 @@
 			"Type": "RequiredResource"
 		},
 		{
-			"Path": "$(EngineDir)/Plugins/Developer/PluginUtils/Binaries/Win64/UE4Editor.modules",
-			"Type": "RequiredResource"
-		},
-		{
 			"Path": "$(EngineDir)/Plugins/Developer/PropertyAccessNode/Binaries/Win64/UE4Editor.modules",
 			"Type": "RequiredResource"
 		},
@@ -2369,10 +2385,6 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Editor/GeometryMode/Binaries/Win64/UE4Editor.modules",
-			"Type": "RequiredResource"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Editor/PluginBrowser/Binaries/Win64/UE4Editor.modules",
 			"Type": "RequiredResource"
 		},
 		{
@@ -2562,6 +2574,18 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(ProjectDir)/Plugins/Alpakit/Alpakit.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Editor/PluginBrowser/PluginBrowser.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Developer/PluginUtils/PluginUtils.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(ProjectDir)/Plugins/BodyDriverPlugin/BodyDriverPlugin.uplugin",
 			"Type": "UFS"
 		},
@@ -2662,6 +2686,14 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(ProjectDir)/Mods/FF7RML/FF7RML.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(ProjectDir)/Mods/FF7RModMenu/FF7RModMenu.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/AI/EnvironmentQueryEditor/EnvironmentQueryEditor.uplugin",
 			"Type": "UFS"
 		},
@@ -2683,10 +2715,6 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Runtime/SignificanceManager/SignificanceManager.uplugin",
-			"Type": "UFS"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Developer/PluginUtils/PluginUtils.uplugin",
 			"Type": "UFS"
 		},
 		{
@@ -2735,10 +2763,6 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Editor/GeometryMode/GeometryMode.uplugin",
-			"Type": "UFS"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Editor/PluginBrowser/PluginBrowser.uplugin",
 			"Type": "UFS"
 		},
 		{
@@ -21012,10 +21036,6 @@
 		{
 			"Path": "$(EngineDir)/Binaries/Win64/AgentInterface.dll",
 			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(EngineDir)/Binaries/Win64/AgentInterface.pdb",
-			"Type": "DebugNonUFS"
 		},
 		{
 			"Path": "$(EngineDir)/Binaries/ThirdParty/FreeImage/Win64/FreeImage.dll",
