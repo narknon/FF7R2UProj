@@ -23,7 +23,8 @@ public class ENDEditor : ModuleRules {
             "SlateCore",
             "AssetTools",
             "Json",
-            "ApplicationCore"
+            "ApplicationCore",
+            "SQEXSEAD"
         });
     }
 }

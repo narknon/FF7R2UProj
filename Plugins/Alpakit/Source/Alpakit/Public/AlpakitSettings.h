@@ -9,6 +9,7 @@ enum class EAlpakitStartGameType : uint8
 {
     NONE UMETA(DisplayName = "Do not launch"),
     STEAM UMETA(DisplayName = "Steam"),
+    EPIC UMETA(DisplayName = "Epic"),
 };
 
 UCLASS(config = Game)
