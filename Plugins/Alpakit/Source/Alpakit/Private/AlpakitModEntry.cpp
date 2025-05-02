@@ -279,16 +279,25 @@ void SAlpakitModEntry::PackageMod(const TArray<TSharedPtr<SAlpakitModEntry>> &Ne
 
     CommandLine += bMergeArchive ? TEXT(" -merge") : TEXT("");
    
-    const FText PlatformName = GetCurrentPlatformName();
-    IUATHelperModule::Get().CreateUatTask(
-        CommandLine,
-        PlatformName,
-        LOCTEXT("PackageModTaskName", "Packaging Mod"),
-        LOCTEXT("PackageModTaskShortName", "Package Mod Task"),
-        // REQ Engine Update
-        // FAlpakitStyle::Get().GetBrush("Alpakit.OpenPluginWindow"),
-        nullptr,
-        NextEntries.Num() == 0 ? (IUATHelperModule::UatTaskResultCallack) nullptr : [NextEntries](FString resultType, double runTime)
+
+    IUATHelperModule::UatTaskResultCallack OnUatCompleted;
+
+    if (NextEntries.Num() == 0)
+    {
+        OnUatCompleted = [Mod = this->Mod](FString ResultType, double RunTime)
+        {
+            AsyncTask(ENamedThreads::GameThread, [Mod]()
+                {
+                    UE_LOG(LogAlpakit, Display, TEXT("Clearing DirectoriesToNeverCook."));
+
+                    UProjectPackagingSettings* PackagingSettings = GetMutableDefault<UProjectPackagingSettings>();
+                    PackagingSettings->DirectoriesToNeverCook.Empty();
+                });
+        };
+    }
+    else
+    {
+        OnUatCompleted = [NextEntries](FString ResultType, double RunTime)
         {
             AsyncTask(ENamedThreads::GameThread, [NextEntries]()
                 {
@@ -300,7 +309,21 @@ void SAlpakitModEntry::PackageMod(const TArray<TSharedPtr<SAlpakitModEntry>> &Ne
 
                     NextMod->PackageMod(RemainingEntries);
                 });
-        });
+        };
+    }
+
+
+    const FText PlatformName = GetCurrentPlatformName();
+    IUATHelperModule::Get().CreateUatTask(
+        CommandLine,
+        PlatformName,
+        LOCTEXT("PackageModTaskName", "Packaging Mod"),
+        LOCTEXT("PackageModTaskShortName", "Package Mod Task"),
+        // REQ Engine Update
+        // FAlpakitStyle::Get().GetBrush("Alpakit.OpenPluginWindow"),
+        nullptr,
+        OnUatCompleted
+    );
 }
 
 void SAlpakitModEntry::OnEnableCheckboxChanged(ECheckBoxState NewState)
