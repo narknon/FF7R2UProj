@@ -32,6 +32,7 @@ private:
 	class FAssetTypeActions_EndAssetPack* AssetAction6;
 	class FAssetTypeActions_ShaderResourceBuffer* AssetAction7;
 	class FAssetTypeActions_EndDataObject* AssetAction8;
+	class FAssetTypeActions_EndFont* AssetAction9;
     
 	// Ticker handle for animating EffectAppendixMesh assets
 	FDelegateHandle TickDelegateHandle;
