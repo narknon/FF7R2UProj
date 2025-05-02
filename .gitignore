@@ -327,3 +327,6 @@ Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/**
 # Ignore large FB data files
 /Source/ThirdParty/Facebook/IOS/**/*.yml
 /Source/ThirdParty/Facebook/IOS/**/*.json
+
+# Add exception for alpakit resources
+!/Plugins/Alpakit/Resources/*
