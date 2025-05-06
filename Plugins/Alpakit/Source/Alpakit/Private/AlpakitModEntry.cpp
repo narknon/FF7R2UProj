@@ -292,6 +292,7 @@ void SAlpakitModEntry::PackageMod(const TArray<TSharedPtr<SAlpakitModEntry>> &Ne
 
                     UProjectPackagingSettings* PackagingSettings = GetMutableDefault<UProjectPackagingSettings>();
                     PackagingSettings->DirectoriesToNeverCook.Empty();
+                    PackagingSettings->UpdateDefaultConfigFile();
                 });
         };
     }
