@@ -9,6 +9,9 @@
 #include "AssetTypeActions_ShaderResourceBuffer.h"
 #include "AssetTypeActions_EndAssetPack.h"
 #include "AssetTypeActions_EndAnimSet.h"
+#include "AssetTypeActions_EndFont.h"
+#include "AssetTypeActions_SQEXSEADSound.h"
+#include "AssetTypeActions_SQEXSEADMusic.h"
 #include "EffectAppendixMesh.h"
 #include "EditorFramework/AssetImportData.h"
 #include "Editor.h"
@@ -90,6 +93,9 @@ void FENDEditorModule::StartupModule()
 	AssetAction6 = new FAssetTypeActions_EndAssetPack(CustomAssetCategory);
 	AssetAction7 = new FAssetTypeActions_ShaderResourceBuffer(CustomAssetCategory);
     AssetAction8 = new FAssetTypeActions_EndDataObject(CustomAssetCategory);
+    AssetAction9 = new FAssetTypeActions_EndFont(CustomAssetCategory);
+    AssetAction10 = new FAssetTypeActions_SQEXSEADSound(CustomAssetCategory);
+    AssetAction11 = new FAssetTypeActions_SQEXSEADMusic(CustomAssetCategory);
 	AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction));
 	AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction2));
 	AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction3));
@@ -98,6 +104,9 @@ void FENDEditorModule::StartupModule()
 	AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction6));
 	AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction7));
     AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction8));
+    AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction9));
+    AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction10));
+    AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction11));
 
     // Register tick delegate for animating EffectAppendixMesh assets
     TickDelegateHandle = FTicker::GetCoreTicker().AddTicker(
@@ -121,6 +130,7 @@ void FENDEditorModule::ShutdownModule()
 		AssetTools.UnregisterAssetTypeActions(AssetAction5->AsShared());
 		AssetTools.UnregisterAssetTypeActions(AssetAction6->AsShared());
 		AssetTools.UnregisterAssetTypeActions(AssetAction7->AsShared());
+        AssetTools.UnregisterAssetTypeActions(AssetAction8->AsShared());
         AssetTools.UnregisterAssetTypeActions(AssetAction8->AsShared());
 
         // Unregister tick delegate

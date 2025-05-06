@@ -1,0 +1,10 @@
+{
+  "$schema": "./templates.schema.json",
+  "templates": [
+    {
+      "name": "Blueprint Only",
+      "description": "Create a mod that contains only Blueprint code and assets.",
+      "path": "BlueprintBlank"
+    }
+  ]
+}

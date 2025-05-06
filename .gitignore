@@ -215,6 +215,9 @@
 !/Plugins/EnginePlugins/Marketplace/ACLPlugin/Content/*
 !/Mods/**/Binaries/Win64/*
 
+# Add exceptions for mod folder
+!/Mods/**/*
+
 # avoid PDBs
 /Plugins/**/*.pdb
 /Mods/**/*.pdb
@@ -281,7 +284,6 @@ obj/
 
 !/Intermediate/ScriptModules/
 
-/Mods/*
 
 
 
@@ -325,3 +327,6 @@ Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/**
 # Ignore large FB data files
 /Source/ThirdParty/Facebook/IOS/**/*.yml
 /Source/ThirdParty/Facebook/IOS/**/*.json
+
+# Add exception for alpakit resources
+!/Plugins/Alpakit/Resources/*
