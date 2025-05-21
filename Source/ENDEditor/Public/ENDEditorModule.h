@@ -35,6 +35,7 @@ private:
 	class FAssetTypeActions_EndFont* AssetAction9;
 	class FAssetTypeActions_SQEXSEADSound* AssetAction10;
 	class FAssetTypeActions_SQEXSEADMusic* AssetAction11;
+	class FAssetTypeActions_EndMaterialPack* AssetAction12;
     
 	// Ticker handle for animating EffectAppendixMesh assets
 	FDelegateHandle TickDelegateHandle;

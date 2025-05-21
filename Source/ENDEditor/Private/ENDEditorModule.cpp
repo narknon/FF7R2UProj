@@ -7,6 +7,7 @@
 #include "AssetTypeActions_EndCameraSequence.h"
 #include "AssetTypeActions_EndDataObject.h"
 #include "AssetTypeActions_ShaderResourceBuffer.h"
+#include "AssetTypeActions_EndMaterialPack.h"
 #include "AssetTypeActions_EndAssetPack.h"
 #include "AssetTypeActions_EndAnimSet.h"
 #include "AssetTypeActions_EndFont.h"
@@ -96,6 +97,7 @@ void FENDEditorModule::StartupModule()
     AssetAction9 = new FAssetTypeActions_EndFont(CustomAssetCategory);
     AssetAction10 = new FAssetTypeActions_SQEXSEADSound(CustomAssetCategory);
     AssetAction11 = new FAssetTypeActions_SQEXSEADMusic(CustomAssetCategory);
+    AssetAction12 = new FAssetTypeActions_EndMaterialPack(CustomAssetCategory);
 	AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction));
 	AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction2));
 	AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction3));
@@ -107,6 +109,7 @@ void FENDEditorModule::StartupModule()
     AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction9));
     AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction10));
     AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction11));
+    AssetTools.RegisterAssetTypeActions(MakeShareable(AssetAction12));
 
     // Register tick delegate for animating EffectAppendixMesh assets
     TickDelegateHandle = FTicker::GetCoreTicker().AddTicker(
@@ -132,6 +135,10 @@ void FENDEditorModule::ShutdownModule()
 		AssetTools.UnregisterAssetTypeActions(AssetAction7->AsShared());
         AssetTools.UnregisterAssetTypeActions(AssetAction8->AsShared());
         AssetTools.UnregisterAssetTypeActions(AssetAction8->AsShared());
+        AssetTools.UnregisterAssetTypeActions(AssetAction9->AsShared());
+        AssetTools.UnregisterAssetTypeActions(AssetAction10->AsShared());
+        AssetTools.UnregisterAssetTypeActions(AssetAction11->AsShared());
+        AssetTools.UnregisterAssetTypeActions(AssetAction12->AsShared());
 
         // Unregister tick delegate
         FTicker::GetCoreTicker().RemoveTicker(TickDelegateHandle);
