@@ -86,6 +86,14 @@ public:
     UPROPERTY()
     FName RowStructName;
 
+    /** Row fields in the order of the game's memory layout (from the game's own file). Used to cook the rows in the game's format. */
+    UPROPERTY()
+    TArray<FName> FrozenFieldNames;
+
+    /** Type codes of FrozenFieldNames, as the game's file lists them. */
+    UPROPERTY()
+    TArray<int32> FrozenFieldTypes;
+
 #endif	// WITH_EDITORONLY_DATA
 
 protected:
