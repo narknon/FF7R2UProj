@@ -1,0 +1,17 @@
+{
+  "FileVersion": 3,
+  "Version": 3,
+  "VersionName": "1.2.0",
+  "FriendlyName": "Rebirth Safe Cooked Loading",
+  "Description": "Stops the editor from crashing on cooked game assets whose saved properties don't fit this project's classes. Such an object loads with default values and a warning instead. In a cook it does this only for packages the cook leaves out (Directories To Never Cook, the game's cooked copies), and stops the cook with the package's name on any other; off in other commandlets (add -RebirthSafeLoad to turn it on there, -NoRebirthSafeLoad to turn it off anywhere). Made for RebirthEngineV5's UE4Editor-CoreUObject.dll; with any other build it stays off.",
+  "Category": "Editor",
+  "CanContainContent": false,
+  "EnabledByDefault": true,
+  "Modules": [
+    {
+      "Name": "RebirthSafeLoad",
+      "Type": "UncookedOnly",
+      "LoadingPhase": "PostConfigInit"
+    }
+  ]
+}

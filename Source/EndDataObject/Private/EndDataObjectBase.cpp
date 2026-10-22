@@ -1,5 +1,8 @@
 #include "EndDataObjectBase.h"
+#include "EndDataObjectSerializeHandler.h"
 #include "EndDataTableRowBase.h"
+
+FEndDataObjectSerializeHandler GEndDataObjectSerializeHandler = nullptr;
 
 UEndDataObjectBase::UEndDataObjectBase()
 	: UMemoryMappedAsset(FObjectInitializer::Get())
@@ -495,6 +498,11 @@ void UEndDataObjectBase::SerializeMember(FMemoryReader& Ar, TArray<FName> KeyNam
 
 void UEndDataObjectBase::Serialize(FArchive& Ar)
 {
+	if (GEndDataObjectSerializeHandler != nullptr && GEndDataObjectSerializeHandler(*this, Ar))
+	{
+		return;
+	}
+
 	Super::Serialize(Ar);
 
 	if (!Content || FrozenContentSize == 0)

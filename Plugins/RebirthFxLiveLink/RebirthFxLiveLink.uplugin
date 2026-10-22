@@ -1,0 +1,29 @@
+{
+  "FileVersion": 3,
+  "Version": 6,
+  "VersionName": "1.6",
+  "FriendlyName": "Rebirth FX Live Link",
+  "Description": "FINAL FANTASY VII REBIRTH effects and materials in the editor, live in the running game: the Rebirth FX menu (open a game effect as Curve assets, recolour it, play it in the game, live edits, export to a mod).",
+  "Category": "Editor",
+  "CreatedBy": "Kade",
+  "CanContainContent": true,
+  "EnabledByDefault": true,
+  "Installed": false,
+  "Modules": [
+    {
+      "Name": "RebirthFxLiveLink",
+      "Type": "Editor",
+      "LoadingPhase": "PostEngineInit"
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "PythonScriptPlugin",
+      "Enabled": true
+    },
+    {
+      "Name": "EditorScriptingUtilities",
+      "Enabled": true
+    }
+  ]
+}

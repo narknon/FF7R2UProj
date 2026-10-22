@@ -1,0 +1,31 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "0.1.0",
+  "FriendlyName": "Rebirth Cooked Asset Preview",
+  "Description": "Read-only opening for cooked assets and runtime preview for cooked materials and effects. Editable assets retain their normal editors.",
+  "Category": "Editor",
+  "CanContainContent": false,
+  "EnabledByDefault": true,
+  "Modules": [
+    {
+      "Name": "RebirthMaterialPreview",
+      "Type": "Editor",
+      "LoadingPhase": "PostEngineInit"
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "Niagara",
+      "Enabled": true
+    },
+    {
+      "Name": "BonamikPlugin",
+      "Enabled": true
+    },
+    {
+      "Name": "RebirthSafeLoad",
+      "Enabled": true
+    }
+  ]
+}
